@@ -1,0 +1,49 @@
+<html>
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.1/css/mdb.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <title>Stock Portfolio Suggestion Engine</title>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.1/js/mdb.min.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>  
+    
+    <div class="div1">
+        <div class="calculate-side">
+            <h1 class='titleHeading' >Stock Portfolio Suggestion Engine</h1>
+            <form method="POST" action="/details/" class='calculate-side-form'>
+                <div class="md-form "><input type="number" id="amount" name="amount" class="form-control"><label for="amount">Amount to Invest ($)</label>
+                </div>
+                <label>Select one of the below Investment Strategies</label>
+                <div class="md-form pos-form" style="width:700px; margin:0 auto;">
+                    <div class="choiceArea clearfix">
+                        <span class="check" >
+                            <label class="check" style="box-shadow: 0 0 50px #124A5F;">Ethical Investing<input type="checkbox" class="check form-control" name="ethicalInvesting" value="Ethical Investing" id="ic_1"/>
+                            </label>
+                        </span>
+                        <span class="check">
+                            <label class="check" style="box-shadow: 0 0 50px #124A5F;">Growth Investing<input type="checkbox" class="check form-control" name="growthInvesting" value="Growth Investing" id="ic_2"/>
+                            </label>
+                        </span>
+                        <span class="check">
+                            <label class="check" style="box-shadow: 0 0 50px #124A5F;">Index Investing<input type="checkbox" class="check form-control" name="indexInvesting" value="Index Investing" id="ic_3"/>
+                            </label>
+                        </span>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-info submit_btn">Get Investing Plan Suggestions</button>
+                    </div>
+            </form>
+        </div>
+    </div>
+    
+    
+</body>
+</html>

@@ -1,0 +1,56 @@
+<html>
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.1/css/mdb.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <script src="{% static 'js/Chart.bundle.js' %}"></script>
+    <title>Stock Portfolio Suggestion Engine Results</title>
+    
+</head>
+<body style="background-color:#fff;">
+    <div class="div1">
+        <div class="row">
+            <div class="page-content">
+                <div id="borderimg" style="background-color:#fff;">
+                    <div class="col-12">
+                        <h1 class='titleHeading'>{{ types.0 }} <i class="fa fa-line-chart" aria-hidden="true"></i></h1>
+                        <p>
+                            The following Symbols can be invested for the selected plan.
+                            <ul>     
+                            {% for stockName,stockClosingPrice,stock_openPrice,symbolName,stockPrice in whole_data %}
+                            <li>{{ stockName}} : {{ symbolName }}</li>
+                            {% endfor %}
+                            </ul>
+                        </p>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class='boldC'>Company</th><th class='boldC'>Symbol</th><th class='boldC'>Stock Open Price</th><th class='boldC'>Stock Close Price</th><th class='boldC'> Invested Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for stockName,stockClosingPrice,stock_openPrice,symbolName,stockPrice in whole_data2 %}
+                                <tr>
+                                    <td>{{ stockName}}</td><td>{{ symbolName }}</td><td align="center">${{ stock_openPrice }}</td><td align="center">${{ stockClosingPrice }}</td><td align="center">${{ stockPrice }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        </div>
+                        <div>
+                            <form method="POST" action="/details_graphs/">
+                                <button type="submit" class="btn btn-info submit_btn">Get Weekly Statistics</button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
